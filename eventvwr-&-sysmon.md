@@ -17,19 +17,40 @@
 <img width="1920" height="1080" alt="Screenshot 2026-09-01 001220" src="https://github.com/user-attachments/assets/6cfa6b5b-44f8-42f0-8459-2951f4daad99" />
 
 
-## // Sysmon Process Monitoring
+# Windows Process Investigation
 
-## What I practiced
+## Process
 
- I ran notepad and then used Sysmon logs in Event Viewer to check process creation activity and view details about a running process.
+notepad.exe
 
-## What I learned
+## Evidence Source
 
- Sysmon Event ID 1 records process creation details such as the process name, PID, parent process, user and file hashes.
+Sysmon Operational Log
+
+## Event
+
+Event ID 1 - Process Creation
+
+## What I Checked
+
+Process name: notepad
+PID: 3912
+Parent process: powershell
+User: `utkarsh`
+Command line: "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+Time: 1:04:32 AM
+
+## Result
+
+Process notepad created by parent process powershell.
+
+## What I Learned
+
+Sysmon provides more detail about process execution than simply viewing the process in Task Manager. The event can show which process started another process, which user was involved and what command was executed.
 
 ## SOC Relevance
 
- These details help trace how a process started and whether it came from a suspicious parent process or user activity.
+Process creation data can help determine how suspicious software or commands were started on a Windows endpoint.
 
 <img width="1920" height="1080" alt="Screenshot 2026-09-01 011014" src="https://github.com/user-attachments/assets/5f6df5d9-1c61-4288-983e-a136751afcf6" />
 
