@@ -21,7 +21,7 @@
 
 ## What I practiced
 
- I used Sysmon logs in Event Viewer to check process creation activity and view details about a running process.
+ I ran notepad and then used Sysmon logs in Event Viewer to check process creation activity and view details about a running process.
 
 ## What I learned
 
